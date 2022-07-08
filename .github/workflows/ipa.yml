@@ -62,13 +62,13 @@ jobs:
 
       - name: Setup ipatool-py
         run: |
-          git clone -b itunes_server https://github.com/NyaMisty/ipatool-py
+          git clone -b itunes_server https://github.com/huutanphp/ipatool-py
           pip3 install -r ipatool-py/requirements.txt
           mkdir -p ipaDown
         shell: bash
 
       - name: Setup iTunes Header Service
-        uses: NyaMisty/actions-iTunes-header@master
+        uses: huutanphp/actions-iTunes-header@master
         if: ${{ github.event.inputs.operation != 'lookup' }}
         with:
           apple_id: ${{ github.event.inputs.appleId }}
@@ -119,7 +119,7 @@ jobs:
         shell: bash
         
       - name: "Upload package"
-        uses: NyaMisty/upload-artifact-as-is@master
+        uses: huutanphp/upload-artifact-as-is@master
         with:
           path: ipaDown\*
 
